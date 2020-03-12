@@ -48,8 +48,8 @@ dependencies {
     dist project(path: ':ballerina-lang:value', configuration: 'birJar')
     dist project(path: ':ballerina-lang:xml', configuration: 'birJar')
     dist project(path: ':ballerina-lang:bool', configuration: 'birJar')
-    dist project(path: ':ballerina-observability', configuration: 'birJar')
-    dist project(path: ':metrics-extensions:ballerina-prometheus-extension', configuration: 'birJar')
+    // dist project(path: ':ballerina-observability', configuration: 'birJar')
+    // dist project(path: ':metrics-extensions:ballerina-prometheus-extension', configuration: 'birJar')
 
     // Lang libs
     dist project(':ballerina-lang:internal')
@@ -69,7 +69,7 @@ dependencies {
     dist project(':ballerina-lang:value')
     dist project(':ballerina-lang:xml')
     dist project(':ballerina-lang:bool')
-    dist project(':ballerina-observability')
+    // dist project(':ballerina-observability')
     
     // Third party jars
     // config
@@ -96,10 +96,10 @@ dependencies {
     
     // observability extensions
     //// metrics
-    dist project(':metrics-extensions:ballerina-metrics-extension')
-    dist project(':metrics-extensions:ballerina-prometheus-extension')
+    // dist project(':metrics-extensions:ballerina-metrics-extension')
+    // dist project(':metrics-extensions:ballerina-prometheus-extension')
     //// tracing
-    dist project(':tracing-extensions:ballerina-jaeger-extension')
+    // dist project(':tracing-extensions:ballerina-jaeger-extension')
     dist 'io.jaegertracing:jaeger-core:0.31.0'
     dist 'io.jaegertracing:jaeger-thrift:0.31.0'
     dist 'org.apache.thrift:libthrift:0.12.0'

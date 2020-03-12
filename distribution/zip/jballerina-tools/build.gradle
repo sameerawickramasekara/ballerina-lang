@@ -89,38 +89,40 @@ dependencies {
     dist 'org.ow2.asm:asm-util:7.1'
     dist 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.5'
 
-    dist project(':ballerina-cli-utils')
+    // dist project(':ballerina-cli-utils')
     dist project(':ballerina-tool')
     dist project(':ballerina-cli-module')
     dist project(':ballerina-jvm')
     birJar project(path: ':ballerina-jvm', configuration: 'birJar')
-    dist project(':ballerina-encoding')
+    // dist project(':ballerina-encoding')
     dist project(':ballerina-bir')
     birJar project(path: ':ballerina-bir', configuration: 'birJar')
     dist project(':ballerina-rt')
 
     dist project(':testerina:testerina-core')
-    dist project(':ballerina-formatter')
+    // dist project(':ballerina-formatter')
     dist project(':ballerina-backend-jvm')
     birJar project(path: ':ballerina-backend-jvm', configuration: 'birJar')
-    dist project(':language-server:language-server-compiler')
-    dist project(':language-server:language-server-commons')
-    dist project(':ballerina-packerina')
-    dist project(':openapi-ballerina:ballerina-to-openapi-generator')
-    dist project(':openapi-ballerina:openapi-to-ballerina-generator')
-    dist project(':openapi-ballerina:openapi-validator')
-    dist project(':openapi-ballerina:ballerina-client-generator')
-    dist project(':docerina')
-    dist project(':protobuf-ballerina')
-    dist project(':testerina:testerina-runtime')
-    docerina project(':docerina-gradle-plugin')
+    // dist project(':language-server:language-server-compiler')
+    // dist project(':language-server:language-server-commons')
 
-    langserverLib project(path: ':language-server:language-server-core', configuration: 'libs')
-    langserverLib project(':language-server:language-server-stdio-launcher')
-    langserverLib project(':language-server:language-server-cli')
-    langserverLib project(':language-server:language-server-core')
-    debugAdapterDistribution project(':debug-adapter:debug-adapter-core')
-    debugAdapterDistribution project(':debug-adapter:debug-adapter-cli')
+    dist project(':ballerina-packerina')
+    
+    // dist project(':openapi-ballerina:ballerina-to-openapi-generator')
+    // dist project(':openapi-ballerina:openapi-to-ballerina-generator')
+    // dist project(':openapi-ballerina:openapi-validator')
+    // dist project(':openapi-ballerina:ballerina-client-generator')
+    // dist project(':docerina')
+    // dist project(':protobuf-ballerina')
+    dist project(':testerina:testerina-runtime')
+    // docerina project(':docerina-gradle-plugin')
+
+    // langserverLib project(path: ':language-server:language-server-core', configuration: 'libs')
+    // langserverLib project(':language-server:language-server-stdio-launcher')
+    // langserverLib project(':language-server:language-server-cli')
+    // langserverLib project(':language-server:language-server-core')
+    // debugAdapterDistribution project(':debug-adapter:debug-adapter-core')
+    // debugAdapterDistribution project(':debug-adapter:debug-adapter-cli')
 
     balSource project(path: ':jballerina', configuration: 'source')
     balxSource project(path: ':jballerina', configuration: 'sourceBalx')
@@ -129,24 +131,24 @@ dependencies {
     bin project(path: ':jballerina', configuration: 'bin')
     staticFiles project(path: ':jballerina', configuration: 'staticFiles')
     resourceFiles project(path: ':jballerina', configuration: 'resourceFiles')
-    composerDistribution project(path: ':composer-library', configuration: 'composer')
-    composerFonts project(path: ':composer-library', configuration: 'fonts')
+    // composerDistribution project(path: ':composer-library', configuration: 'composer')
+    // composerFonts project(path: ':composer-library', configuration: 'fonts')
     
     distBal project(path: ':testerina:testerina-core', configuration: 'baloImplementation')
     balSource project(path: ':testerina:testerina-core', configuration: 'balSource')
 
     distBal project(path: ':testerina:testerina-core', configuration: 'baloImplementation')
-    distBal project(path: ':ballerina-encoding', configuration: 'baloImplementation')
+    // distBal project(path: ':ballerina-encoding', configuration: 'baloImplementation')
 
     balSource project(path: ':ballerina-bir', configuration: 'balSource')
     balSource project(path: ':ballerina-jvm', configuration: 'balSource')
 
-    birJar project(path: ':metrics-extensions:ballerina-prometheus-extension', configuration: 'prometheusJar')
+    // birJar project(path: ':metrics-extensions:ballerina-prometheus-extension', configuration: 'prometheusJar')
 
     // ballerinax module cache
-    balxBir project(path: ':ballerina-jdbc', configuration: 'bir')
+    // balxBir project(path: ':ballerina-jdbc', configuration: 'bir')
     balxBir project(path: ':ballerina-java', configuration: 'bir')
-    balxBir project(path: ':ballerina-java-arrays', configuration: 'bir')
+    // balxBir project(path: ':ballerina-java-arrays', configuration: 'bir')
 }
 
 
@@ -355,10 +357,10 @@ task generateDocs(type: JavaExec) {
     args("$libs", "$buildDir/api-docs", "lang.__internal,lang.annotations,bir,jvm,utils,ldap")
 }
 
-task createApiDocsZip(type: Zip) {
-    from generateDocs.outputs.files
-    archiveName "ballerina-api-docs-${project.version}.zip"
-}
+// task createApiDocsZip(type: Zip) {
+//     from generateDocs.outputs.files
+//     archiveName "ballerina-api-docs-${project.version}.zip"
+// }
 
 task createZip(type: Zip) {
     def basePath = '/' + project.name + '-' + project.version + '/'
@@ -376,7 +378,7 @@ task createZip(type: Zip) {
     with copydebugAdapterDistributionSpec(basePath)
     with copyDebugAdapterLauncher(basePath)
     with examplesSpec(basePath)
-    with apiDocsSpec(basePath)
+    // with apiDocsSpec(basePath)
     with copyStaticSpec(basePath)
     with copyResourceSpec(basePath)
 //    with copySrcBaloSpec(basePath)
@@ -398,7 +400,7 @@ task updateBalHome(type: Copy) {
     with copyBallerinaZipSpec(installDir)
     with copydebugAdapterDistributionSpec(installDir)
     with copyDebugAdapterLauncher(installDir)
-    with apiDocsSpec(installDir)
+    // with apiDocsSpec(installDir)
     with examplesSpec(installDir)
     with copyStaticSpec(installDir)
     with copyResourceSpec(installDir)
@@ -408,7 +410,7 @@ task updateBalHome(type: Copy) {
 }
 
 task createDistribution(type: Copy) {
-    mustRunAfter(':language-server:language-server-core:createZip')
+    // mustRunAfter(':language-server:language-server-core:createZip')
     def filePath = "$buildDir/extracted-distributions/${project.name}-${project.version}"
     file(filePath).mkdirs()
     with copyJarSpec("")
@@ -424,7 +426,7 @@ task createDistribution(type: Copy) {
     with copyBallerinaZipSpec("")
     with copydebugAdapterDistributionSpec("")
     with copyDebugAdapterLauncher("")
-    with apiDocsSpec("")
+    // with apiDocsSpec("")
     with examplesSpec("")
     with copyStaticSpec("")
     with copyResourceSpec("")

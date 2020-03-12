@@ -27,8 +27,8 @@ import org.ballerinalang.natives.annotations.Attribute;
 import org.ballerinalang.natives.annotations.BallerinaAnnotation;
 import org.ballerinalang.natives.annotations.BallerinaFunction;
 import org.ballerinalang.natives.annotations.ReturnType;
-import org.ballerinalang.openapi.CodeGenerator;
-import org.ballerinalang.openapi.exception.BallerinaOpenApiException;
+// import org.ballerinalang.openapi.CodeGenerator;
+// import org.ballerinalang.openapi.exception.BallerinaOpenApiException;
 import org.ballerinalang.test.runtime.util.TesterinaConstants;
 import org.ballerinalang.tool.util.BCompileUtil;
 import org.ballerinalang.tool.util.CompileResult;
@@ -69,16 +69,16 @@ public class StartServiceSkeleton extends BlockingNativeCallableUnit {
         String sourceRoot = System.getProperty(TesterinaConstants.BALLERINA_SOURCE_ROOT);
         initTempDir(sourceRoot);
         Path rootDir = Paths.get(sourceRoot, TesterinaConstants.TESTERINA_TEMP_DIR);
-        CodeGenerator generator = new CodeGenerator();
-        generator.setSrcPackage(moduleName);
+        // CodeGenerator generator = new CodeGenerator();
+        // generator.setSrcPackage(moduleName);
 
-        try {
-            // TODO: find how to give the service name in to service generation function.
-            generator.generateService(userDir, openApiFilePath, "", "", rootDir.toString());
-        } catch (IOException | BallerinaOpenApiException e) {
-            throw new BallerinaException(String.format("Service skeleton creation failed. Failed to generate the "
-                    + "service from the [OpenApi file] %s [cause] %s", openApiFilePath, e.getMessage()), e);
-        }
+        // try {
+        //     // TODO: find how to give the service name in to service generation function.
+        //     generator.generateService(userDir, openApiFilePath, "", "", rootDir.toString());
+        // } catch (IOException | BallerinaOpenApiException e) {
+        //     throw new BallerinaException(String.format("Service skeleton creation failed. Failed to generate the "
+        //             + "service from the [OpenApi file] %s [cause] %s", openApiFilePath, e.getMessage()), e);
+        // }
 
         CompileResult compileResult = BCompileUtil.compile(rootDir.toString(), moduleName, CompilerPhase.CODE_GEN);
 
